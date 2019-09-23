@@ -11,7 +11,7 @@ class Temperature:
 
 #make session
     def __init__(self,sess,name):
-        self.sess=sessS
+        self.sess=sess
         self.name=name
         self.build_network()
 
