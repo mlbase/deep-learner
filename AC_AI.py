@@ -2,9 +2,6 @@
 import numpy as np
 import tensorflow as tf
 
-import nump
-
-
 class Temperature:
     learning_rate = 0.005
     training_rate = 1500
