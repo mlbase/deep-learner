@@ -39,7 +39,7 @@ class Temperature:
         return self.sess.run([self.cost, self.optimizer],feed_dict={self.x:input_data, self.y:output_data, self.keep_prop:keep_prop})
       
 # feed_dictionary 는 placeholder로 변수선안한 변수만 사용가능!, 피딩 : 세션을 실행할때마다 데이터를 저장
-    def predict(self, test_data, keep_prop=1.0):
+    def predict(self, test_data=HVAC.reward_cal(), keep_prop=1.0):
         return float((self.sess.run(self.hypothesis,feed_dict={self.X:[[test_data,self.T_set,T_out[HVAC.time-1],HVAC.temp]]})))
 
 
