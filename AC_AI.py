@@ -8,10 +8,10 @@ class Temperature:
     batch_size = 500
     T_set=24
     T_out = [23, 23, 23, 23, 24, 24, 27, 28, 28, 31, 31, 32, 33, 33, 32, 32, 30, 30, 29, 27, 27, 26, 25, 24]
-
+    tf.session=sess
+    
 #make session
     def __init__(self,sess,name):
-        self.sess=sess
         self.name=name
         self.build_network()
 
