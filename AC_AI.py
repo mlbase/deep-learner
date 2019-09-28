@@ -8,17 +8,17 @@ class Temperature:
     batch_size = 500
     T_set=24
     T_out = [23, 23, 23, 23, 24, 24, 27, 28, 28, 31, 31, 32, 33, 33, 32, 32, 30, 30, 29, 27, 27, 26, 25, 24]
-    tf.session=sess
     
 #make session
     def __init__(self,sess,name):
         self.name=name
         self.build_network()
+        self.session=sess
 
 
     def build_network(self):
         with tf.variable_scope(self.name): 
-            self.keep_prob=tf.placeholder(tf.float32) #drob out 을 설정하는 추가 변수
+            self.keep_prop=tf.placeholder(tf.float32) #drob out 을 설정하는 추가 변수
             self.x=tf.placeholder(tf.float32,[None,4]) #텐서(placeholder)
             self.y=tf.placeholder(tf.float32,[None,1])
 #placeholder : 학습예제 variable : 실제 학습을 하는 변수
@@ -41,6 +41,9 @@ class Temperature:
 # feed_dictionary 는 placeholder로 변수선안한 변수만 사용가능!, 피딩 : 세션을 실행할때마다 데이터를 저장
     def predict(self, test_data=HVAC.reward_cal(), keep_prop=1.0):
         return float((self.sess.run(self.hypothesis,feed_dict={self.X:[[test_data,self.T_set,T_out[HVAC.time-1],HVAC.temp]]})))
+    
+    def update_network(self):
+        
 
 
 class HVAC:
