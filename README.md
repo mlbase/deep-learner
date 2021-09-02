@@ -6,4 +6,5 @@
 3. E-greedy algorithm
 4. no-neural network
 5. matlab
+6. numpy package
 ---
